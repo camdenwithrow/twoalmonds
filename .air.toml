@@ -1,0 +1,21 @@
+[build]
+pre_cmd = ["templ generate","pnpm tailwindcss -i ./static/css/main.css -o ./dist/tailwind.css"]
+# It's not necessary to trigger build each time file changes if it's too frequent.
+delay = 1000
+
+# Delay after sending Interrupt signal
+kill_delay = 10
+
+# Ignore these filename extensions or directories.
+exclude_dir = ["postgres","vendor","misc","terraform"]
+exclude_regex =["_templ\\.go"]
+include_ext = ["templ", "go"]
+
+cmd = "go build -o ./tmp/main ./cmd/twoalmonds"
+[log]
+# Show log time
+time = true
+
+[misc]
+# Delete tmp directory on exit
+clean_on_exit = true
