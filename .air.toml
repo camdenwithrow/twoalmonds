@@ -1,5 +1,8 @@
 [build]
-pre_cmd = ["templ generate","pnpm tailwindcss -i ./static/css/main.css -o ./dist/tailwind.css"]
+pre_cmd = [
+  "templ generate",
+  "pnpm tailwindcss -i ./static/css/main.css -o ./dist/output.css"
+]
 # It's not necessary to trigger build each time file changes if it's too frequent.
 delay = 1000
 
